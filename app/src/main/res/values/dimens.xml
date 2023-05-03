@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tamaño del botón -->
+    <dimen name="button_size">70dp</dimen>
+
+    <!-- Radio de las esquinas del botón -->
+    <dimen name="button_corner_radius">50dp</dimen>
+</resources>
