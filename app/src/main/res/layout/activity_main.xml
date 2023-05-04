@@ -1,74 +1,300 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <LinearLayout
-        android:id="@+id/linear_ly1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linear_image"
+        android:layout_width="wrap_content"
+        android:layout_height="138dp"
         android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        tools:ignore="MissingConstraints">
 
         <ImageView
-            android:id="@+id/image_view"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="40dp"
-            app:srcCompat="@drawable/local"
-            tools:ignore="ImageContrastCheck"
-            android:contentDescription="@string/app_name" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/image_banner"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:contentDescription="@string/app_name"
+            app:srcCompat="@drawable/local"
+            tools:ignore="ImageContrastCheck" />
 
-            <ImageButton
-                android:id="@+id/my_button"
-                android:layout_width="@dimen/button_size"
-                android:layout_height="@dimen/button_size"
-                android:background="@drawable/btn_bg"
-                android:src="@drawable/ic_baseline_people_24"
-                android:contentDescription="@string/button_description"
-                android:scaleType="centerInside" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/app_name"
-                style="?android:attr/buttonBarButtonStyle" />
-
-        </LinearLayout>
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linear_image">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_direction"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_direction"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/baseline_fmd_good_24"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/text_direction"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_direction"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_direction"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_client"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_client"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_baseline_people_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/text_client"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_client"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_client"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_category"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_category"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/baseline_category_24"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/text_category"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_category"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_category"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_product"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_product"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/baseline_shopping_bag_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/text_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_product"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_product"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="798dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_driver"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_driver"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/baseline_delivery_dining_24"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/text_driver"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_driver"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_driver"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="16dp"
+                    android:orientation="vertical">
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageButton
+                            android:id="@+id/btn_order"
+                            android:layout_width="@dimen/button_size"
+                            android:layout_height="@dimen/button_size"
+                            android:background="@drawable/btn_bg"
+                            android:contentDescription="@string/txt_order"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/baseline_shopping_cart_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            android:text="@string/txt_order"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/btn_order"
+                            tools:ignore="MissingConstraints" />
+
+
+                    </android.support.constraint.ConstraintLayout>
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
+    </android.support.constraint.ConstraintLayout>
+
 
 </android.support.constraint.ConstraintLayout>
