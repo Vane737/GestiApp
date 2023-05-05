@@ -1,4 +1,10 @@
 <resources>
-    <string name="app_name">EmpredeApp</string>
+    <string name="app_name">Inicio</string>
     <string name="button_description">EmpredeApp</string>
+    <string name="txt_direction">Direcciones</string>
+    <string name="txt_client">Clientes</string>
+    <string name="txt_category">Categorias</string>
+    <string name="txt_product">Productos</string>
+    <string name="txt_driver">Repartidores</string>
+    <string name="txt_order">Pedidos</string>
 </resources>
