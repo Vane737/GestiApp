@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Inicio</string>
     <string name="button_description">EmpredeApp</string>
+
     <string name="txt_direction">Direcciones</string>
     <string name="txt_client">Clientes</string>
     <string name="txt_category">Categorias</string>
     <string name="txt_product">Productos</string>
     <string name="txt_driver">Repartidores</string>
     <string name="txt_order">Pedidos</string>
+
+    <string name="btn_text_agregar">Agregar</string>
+    <string name="btn_text_editar">Editar</string>
+    <string name="btn_text_eliminar">Eliminar</string>
+
+    <string name="txt_title_direction">Dirección</string>
+    <string name="txt_title_client">Cliente</string>
+    <string name="txt_title_category">Categoria</string>
+    <string name="txt_title_product">Producto</string>
+    <string name="txt_title_driver">Repartidor</string>
+    <string name="txt_title_order">Pedido</string>
 </resources>
