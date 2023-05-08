@@ -9,40 +9,30 @@ import androidx.annotation.Nullable;
 
 import com.prueba.empredeapp.database.Database;
 
-public class DCategory extends Database{
+public class DCategory{
 
-    Context contexto;
-    private int id;
+    private String id;
     private String nombre;
     private String descripcion;
 
-    public DCategory(@Nullable Context context)
+
+    private SQLiteDatabase db;
+
+
+    public DCategory(SQLiteDatabase db)
     {
-        super(context);
-        this.contexto = context;
+        this.id = "";
+        this.nombre = "";
+        this.descripcion = "";
+        this.db = db;
     }
 
-    public String getDescription() {
-        return descripcion;
-    }
 
-    public void setDescription(String description) {
-        this.descripcion = description;
-    }
-
-    public Context getContexto() {
-        return contexto;
-    }
-
-    public void setContexto(Context contexto) {
-        this.contexto = contexto;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -54,28 +44,30 @@ public class DCategory extends Database{
         this.nombre = nombre;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-    @Override
-    public String toString() {
-        return "DCategory{" +
-                "contexto=" + contexto +
-                ", id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                '}';
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public SQLiteDatabase getDb() {
+        return db;
+    }
+
+    public void setDb(SQLiteDatabase db) {
+        this.db = db;
     }
 
     public long agregar() {
         long id = 0;
         try {
-            Database database = new Database(contexto);
-            SQLiteDatabase db = database.getWritableDatabase();
 
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
             values.put("descripcion", this.descripcion);
 
-            System.out.println(database.getDatabaseName());
             id = db.insert("category", null, values );
 
         } catch (Exception ex) {
