@@ -4,46 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.NuevaCategoriaActivity">
+    tools:context=".view.category.VCrearCategoriaActivity">
 
 
     <EditText
-        android:id="@+id/txtNombre"
+        android:id="@+id/txtNombreCat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="164dp"
         android:ems="10"
         android:hint="Nombre:"
+        android:layout_marginHorizontal="20dp"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:id="@+id/txtDescripcion"
+        android:id="@+id/txtDescripcionCat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginVertical="20dp"
         android:hint="Descripcion:"
+        android:layout_marginHorizontal="20dp"
         android:inputType="textPersonName"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/txtNombreCat" />
 
     <Button
-        android:id="@+id/btnGuardar"
+        android:id="@+id/btnGuardarCat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/btn_bg"
-        android:textSize="24sp"
         android:text="@string/btn_text_agregar"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescripcion" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescripcionCat" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

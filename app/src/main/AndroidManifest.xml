@@ -9,10 +9,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmpredeApp" >
         <activity
-            android:name=".controller.NuevaCategoriaActivity"
+            android:name=".view.category.VCrearCategoriaActivity"
             android:exported="false" />
         <activity
-            android:name=".controller.EditarCategoryActivity"
+            android:name=".view.category.EditarCategoryActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

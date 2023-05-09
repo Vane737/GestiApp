@@ -1,4 +1,4 @@
-package com.prueba.empredeapp.controller;
+package com.prueba.empredeapp.view.category;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,5 +12,7 @@ public class EditarCategoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_category);
+
+
     }
 }

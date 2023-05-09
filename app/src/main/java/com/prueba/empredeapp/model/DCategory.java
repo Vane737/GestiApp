@@ -15,16 +15,14 @@ public class DCategory{
     private String nombre;
     private String descripcion;
 
-
-    private SQLiteDatabase db;
-
-
-    public DCategory(SQLiteDatabase db)
+    private Context contexto;
+    ;
+    public DCategory( Context context)
     {
         this.id = "";
         this.nombre = "";
         this.descripcion = "";
-        this.db = db;
+        this.contexto = context;
     }
 
 
@@ -52,18 +50,12 @@ public class DCategory{
         this.descripcion = descripcion;
     }
 
-    public SQLiteDatabase getDb() {
-        return db;
-    }
-
-    public void setDb(SQLiteDatabase db) {
-        this.db = db;
-    }
 
     public long agregar() {
         long id = 0;
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
         try {
-
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
             values.put("descripcion", this.descripcion);
@@ -73,9 +65,52 @@ public class DCategory{
         } catch (Exception ex) {
             System.out.println(ex);
             ex.toString();
+        } finally {
+            db.close();
         }
 
         return id;
+    }
+
+    public boolean editar() {
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        boolean isCorrect  = false;
+        try {
+            ContentValues values = new ContentValues();
+            values.put("nombre", this.nombre);
+            values.put("descripcion", this.descripcion);
+
+            db.update("categoria", values, "id=" + id, null) ;
+            isCorrect = true;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            isCorrect = false;
+            ex.toString();
+
+        } finally {
+            db.close();
+        }
+
+        return isCorrect;
+    }
+
+    public boolean eliminar() {
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        boolean isCorrect  = false;
+        try {
+            db.delete("categoria", id, null) ;
+            isCorrect = true;
+        } catch (Exception ex) {
+            System.out.println(ex);
+            isCorrect = false;
+            ex.toString();
+        } finally {
+            db.close();
+        }
+
+        return isCorrect;
     }
 
 }
