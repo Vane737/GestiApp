@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.prueba.empredeapp.R;
+import com.prueba.empredeapp.controller.CCategory;
 import com.prueba.empredeapp.model.NCategory;
 
 public class VCrearCategoriaActivity extends AppCompatActivity {
@@ -25,6 +26,10 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         btnGuardar = (Button) findViewById(R.id.btnGuardarCat);
 
         NCategory nc = new NCategory(this);
-
+        CCategory cc = new CCategory(this, nc);
     }
+
+
+
+
 }

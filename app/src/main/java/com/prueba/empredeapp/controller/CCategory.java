@@ -7,7 +7,7 @@ public class CCategory {
     NCategory nc;
     VCrearCategoriaActivity vc;
 
-    public CCategory(NCategory nc, VCrearCategoriaActivity vc) {
+    public CCategory( VCrearCategoriaActivity vc, NCategory nc ) {
         this.nc = nc;
         this.vc = vc;
     }
