@@ -3,8 +3,9 @@
     <string name="button_description">EmpredeApp</string>
 
     <string name="txt_gestionar_category">Gestionar Categoria</string>
-    <string name="txt_editar">Editar</string>
-    <string name="txt_eliminar">Eliminar</string>
+    <string name="btn_nuevo">Añadir</string>
+    <string name="btn_editar">Editar</string>
+    <string name="btn_eliminar">Eliminar</string>
 
     <string name="txt_direction">Direcciones</string>
     <string name="txt_client">Clientes</string>

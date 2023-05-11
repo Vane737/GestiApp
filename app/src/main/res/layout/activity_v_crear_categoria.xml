@@ -7,16 +7,14 @@
     tools:context=".view.category.VCrearCategoriaActivity">
 
 
-
-
     <EditText
         android:id="@+id/txtNombreCat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginTop="164dp"
         android:ems="10"
-        android:hint="Nombre:"
-        android:layout_marginHorizontal="20dp"
+        android:hint="Nombre"
         android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,10 +24,10 @@
         android:id="@+id/txtDescripcionCat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginVertical="20dp"
-        android:hint="Descripcion:"
         android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="20dp"
+        android:ems="10"
+        android:hint="Descripcion"
         android:inputType="textPersonName"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +44,7 @@
         tools:layout_editor_absoluteX="16dp">
 
         <Button
-            android:id="@+id/btnGuardarCat3"
+            android:id="@+id/btnGuardar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -58,7 +56,7 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/btnGuardarCat2"
+            android:id="@+id/btnEditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
@@ -70,14 +68,14 @@
             android:textSize="24sp" />
 
         <Button
-            android:id="@+id/btnGuardarCat"
+            android:id="@+id/btnEliminar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingHorizontal="15dp"
             android:layout_marginTop="48dp"
             android:layout_marginHorizontal="15dp"
             android:background="@drawable/btn_bg"
-            android:text="@string/txt_eliminar"
+            android:text="@string/btn_eliminar"
             android:textColor="@color/white"
             android:textSize="24sp" />
     </LinearLayout>

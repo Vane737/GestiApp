@@ -2,7 +2,6 @@ package com.prueba.empredeapp.view.category;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -25,7 +24,7 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
 
         txtNombre = (TextView) findViewById(R.id.txtNombreCat);
         txtDescription = (TextView) findViewById(R.id.txtDescripcionCat);
-        btnGuardar = (Button) findViewById(R.id.btnGuardarCat);
+        btnGuardar = (Button) findViewById(R.id.btnEliminar);
 
         NCategory nc = new NCategory(this);
         CCategory cc = new CCategory(VCrearCategoriaActivity.this, nc);
