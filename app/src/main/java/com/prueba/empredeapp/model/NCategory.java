@@ -3,6 +3,8 @@ package com.prueba.empredeapp.model;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.List;
+
 public class NCategory {
     DCategory dc;
     Context context;
@@ -35,4 +37,14 @@ public class NCategory {
         dc.setId(id);
         return this.dc.eliminar();
     }
+
+    public DCategory buscarCategory( String id ) {
+            dc.setId(id);
+        return this.dc.buscarCategoria();
+    }
+    public List<DCategory> categoriesList() {
+        return dc.listCategories();
+    }
+
+
 }

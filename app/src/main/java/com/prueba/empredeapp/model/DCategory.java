@@ -2,6 +2,7 @@ package com.prueba.empredeapp.model;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 
@@ -9,12 +10,14 @@ import androidx.annotation.Nullable;
 
 import com.prueba.empredeapp.database.Database;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class DCategory{
 
     private String id;
     private String nombre;
     private String descripcion;
-
     private Context contexto;
     ;
     public DCategory( Context context)
@@ -25,6 +28,11 @@ public class DCategory{
         this.contexto = context;
     }
 
+    public DCategory(String id, String nombre, String descripcion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+    }
 
     public String getId() {
         return id;
@@ -112,5 +120,43 @@ public class DCategory{
 
         return isCorrect;
     }
+
+    public DCategory buscarCategoria() {
+
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String sql = String.format("select * from categoria where %s='%s';", "id" , id);
+        Cursor row = db.rawQuery(sql, null);
+        if (row.moveToFirst()) {
+                    setId( row.getString(0) );
+                    setNombre(row.getString(1));
+                    setDescripcion(row.getString(2));
+        }
+        return this;
+    }
+    public List<DCategory> listCategories() {
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+        List<DCategory> categories = new LinkedList<>();
+
+        String sql = String.format("select * from categoria");
+        Cursor rows = db.rawQuery(sql, null);
+
+        if ( rows.moveToFirst() ) {
+            do {
+                DCategory category = new DCategory(
+                        rows.getString(0),
+                        rows.getString(1),
+                        rows.getString(2)
+                );
+                categories.add( category );
+            }while ( rows.moveToNext() );
+        }
+        return categories;
+    }
+
+
+
+
 
 }

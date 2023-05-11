@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.prueba.empredeapp.R;
 import com.prueba.empredeapp.controller.CCategory;
@@ -38,9 +39,15 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         return txtDescription.getText().toString();
     }
 
+    public void mensaggeToast(String mensaje) {
+        Toast.makeText(VCrearCategoriaActivity.this, mensaje, Toast.LENGTH_SHORT).show();
+    }
 
+    public void cleanFormData() {
 
-
+        txtNombre.setText("");
+        txtDescription.setText("");
+    }
 
 
 }
