@@ -18,13 +18,18 @@ public class CCategory {
 
     private void guardar() {
 
-        long id = nc.crear(vc.getTextNombre(), vc.getTextDescriocion());
+        long id = 0;
 
-        if (id > 0 ) {
-            vc.mensaggeToast("Registro Guardado");
-            vc.cleanFormData();
+        if (vc.getTextNombre().length() > 0 && vc.getTextDescriocion().length() > 0 ){
+             id = nc.crear(vc.getTextNombre(), vc.getTextDescriocion());
+            if (id > 0 ) {
+                vc.mensaggeToast("Registro Guardado");
+                vc.cleanFormData();
+            } else {
+                vc.mensaggeToast("Error al guardar el registro");
+            }
         } else {
-            vc.mensaggeToast("Error al guardar el registro");
+             vc.mensaggeToast("Debe Escrbir datos en todos los campos");
         }
 
     }

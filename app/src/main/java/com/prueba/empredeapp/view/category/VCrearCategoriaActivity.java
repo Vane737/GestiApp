@@ -2,6 +2,7 @@ package com.prueba.empredeapp.view.category;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
     public Button btnGuardar;
     public Button btnEditar;
     public Button btnEliminar;
+    private Bundle extras;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +33,26 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_v_crear_categoria);
 
         txtId = (TextView) findViewById(R.id.txtIdCat);
+        txtId.setEnabled(false);
         txtNombre = (TextView) findViewById(R.id.txtNombreCat);
         txtDescription = (TextView) findViewById(R.id.txtDescripcionCat);
         btnGuardar = (Button) findViewById(R.id.btnGuardar);
         btnEditar = (Button) findViewById(R.id.btnEditar);
         btnEliminar = (Button) findViewById(R.id.btnEliminar);
-
+        extras = getIntent().getExtras();
+        if (extras != null ) {
+            btnGuardar.setEnabled(false);
+            txtId.setText(extras.getString("id"));
+            txtNombre.setText(extras.getString("nombre"));
+            txtDescription.setText(extras.getString("descripcion"));
+        }
+        if (extras == null ) {
+            btnEditar.setEnabled(false);
+            btnEliminar.setEnabled(false);
+        }
         NCategory nc = new NCategory(this);
         CCategory cc = new CCategory(VCrearCategoriaActivity.this, nc);
-//        CCategoryList ccl = new CCategoryList(VCrearCategoriaActivity.this, nc);
     }
-
-    // nombre = unnombre, descripcion = "una descripción"
     public String getTextId() {
         return txtId.getText().toString();
     }
@@ -59,9 +70,10 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         btnAction.setEnabled(value);
     }
     public void cleanFormData() {
-
+        txtId.setText("");
         txtNombre.setText("");
         txtDescription.setText("");
     }
+
 
 }

@@ -61,7 +61,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginHorizontal="15dp"
             android:layout_weight="1"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bg_primary"
             android:text="@string/btn_text_agregar"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -73,7 +73,7 @@
             android:layout_marginTop="48dp"
             android:layout_marginHorizontal="15dp"
             android:layout_weight="1"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bg_primary"
             android:text="@string/btn_text_editar"
             android:textColor="@color/white"
             android:textSize="16sp" />
@@ -85,7 +85,7 @@
             android:paddingHorizontal="15dp"
             android:layout_marginTop="48dp"
             android:layout_marginHorizontal="15dp"
-            android:background="@drawable/btn_bg"
+            android:background="@drawable/btn_bg_primary"
             android:text="@string/btn_eliminar"
             android:textColor="@color/white"
             android:textSize="16sp" />

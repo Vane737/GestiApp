@@ -1,44 +1,80 @@
 package com.prueba.empredeapp.model;
 
+import static java.lang.Integer.parseInt;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-
-import androidx.annotation.Nullable;
 
 import com.prueba.empredeapp.database.Database;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class DCategory{
-
+public class DProduct {
     private String id;
     private String nombre;
+    private String marca;
     private String descripcion;
+    private String precio;
+
+    private String idCategoria;
+
+    public DProduct(Context context)
+    {
+        this.id = "";
+        this.nombre = "";
+        this.marca = "";
+        this.descripcion = "";
+        this.precio = "";
+        this.idCategoria = "";
+        this.contexto = context;
+    }
+
+    public DProduct(String id, String nombre, String marca, String descripcion, String precio, String idCategoria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.marca = marca;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.idCategoria = idCategoria;
+    }
+
+    public String getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(String idCategoria) {
+        this.idCategoria = idCategoria;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
     private Context contexto;
 
     @Override
     public String toString() {
-        return   id + ".-  " +
-                "NOMBRE:  " + nombre.toUpperCase() + "  -  "   +
-                "DESCRIPCION:  " + descripcion.toUpperCase();
-    }
-    ;
-    public DCategory( Context context)
-    {
-        this.id = "";
-        this.nombre = "";
-        this.descripcion = "";
-        this.contexto = context;
-    }
-
-    public DCategory(String id, String nombre, String descripcion) {
-        this.id = id;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
+        return  id + ".- " +
+                " NOMBRE:" + nombre.toUpperCase() + '\n' +
+                "MARCA:" + marca.toUpperCase() + '\n' +
+                "DESCRIPCION:" + descripcion.toUpperCase() + '\n' +
+                "PRECIO:" + precio + "  -  " +
+                "IDCATEGORIA:" + idCategoria;
     }
 
     public String getId() {
@@ -73,9 +109,11 @@ public class DCategory{
         try {
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
+            values.put("marca", this.marca);
             values.put("descripcion", this.descripcion);
-
-            id = db.insert("category", null, values );
+            values.put("precio", Double.parseDouble(this.precio));
+            values.put("categoria_id",  parseInt(this.idCategoria));
+            id = db.insert("product", null, values );
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -95,8 +133,11 @@ public class DCategory{
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
             values.put("descripcion", this.descripcion);
+            values.put("descripcion", this.descripcion);
+            values.put("precio", Double.parseDouble(precio));
+            values.put("categoria_id",  parseInt(this.idCategoria));
 
-            id = db.update("category", values, "id=" + this.id, null) ;
+            id = db.update("product", values, "id=" + this.id, null) ;
         } catch (Exception ex) {
             System.out.println(ex);
             ex.toString();
@@ -113,7 +154,7 @@ public class DCategory{
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         int id  = 0;
         try {
-            id = db.delete("category", "id=" + this.id, null);
+            id = db.delete("product", "id=" + this.id, null);
         } catch (Exception ex) {
             System.out.println(ex);
             ex.toString();
@@ -124,42 +165,45 @@ public class DCategory{
         return id;
     }
 
-    public DCategory buscarCategoria() {
+    public DProduct buscarProducto() {
 
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        String sql = String.format("select * from category where %s='%s';", "id" , id);
+        String sql = String.format("select * from product where %s='%s';", "id" , id);
         Cursor row = db.rawQuery(sql, null);
         if (row.moveToFirst()) {
-                    setId( row.getString(0) );
-                    setNombre(row.getString(1));
-                    setDescripcion(row.getString(2));
+            setId( row.getString(0) );
+            setNombre(row.getString(1));
+            setMarca(row.getString(2));
+            setDescripcion(row.getString(3));
+            setPrecio(row.getString(4));
+            setIdCategoria(row.getString(5));
         }
         return this;
     }
-    public List<DCategory> listCategories() {
+    public List<DProduct> listProducts() {
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        List<DCategory> categories = new LinkedList<>();
+        List<DProduct> products = new LinkedList<>();
 
-        String sql = String.format("select * from category");
+        String sql = String.format("select * from product");
         Cursor rows = db.rawQuery(sql, null);
 
         if ( rows.moveToFirst() ) {
             do {
-                DCategory category = new DCategory(
+                DProduct product = new DProduct(
                         rows.getString(0),
                         rows.getString(1),
-                        rows.getString(2)
+                        rows.getString(2),
+                        rows.getString(3),
+                        rows.getString(4),
+                        rows.getString(5)
                 );
-                categories.add( category );
+                products.add( product );
             }while ( rows.moveToNext() );
         }
-        return categories;
+        return products;
     }
-
-
-
 
 
 }

@@ -2,6 +2,7 @@ package com.prueba.empredeapp.view.category;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.AdapterView;
@@ -27,6 +28,7 @@ public class VListarCategoriasActivity extends AppCompatActivity {
     public ListView categoriasListView;
     private ArrayAdapter<DCategory> categoriasListAdapter;
 
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class VListarCategoriasActivity extends AppCompatActivity {
         categoriasListView = (ListView) findViewById(R.id.list_view_cat);
         categoriasListAdapter = new ArrayAdapter<DCategory>(this, R.layout.list_item);
         categoriasListView.setAdapter(categoriasListAdapter);
-
+        System.out.println("Hola mundo");
         NCategory nc = new NCategory(this);
         CCategoryList cc = new CCategoryList(VListarCategoriasActivity.this, nc);
     }
@@ -47,21 +49,23 @@ public class VListarCategoriasActivity extends AppCompatActivity {
     public void setCategoriesList(List<DCategory> categoriesList) {
         categoriasListAdapter.clear();
         for (int i = 0; i < categoriesList.size(); i++) {
+            System.out.println(categoriesList.get(i));
             categoriasListAdapter.add(categoriesList.get(i));
         }
     }
-    public void setIntent(VListarCategoriasActivity vcl, VCrearCategoriaActivity vcc) {
+    public void setIntent(VListarCategoriasActivity vcl, Context vcc) {
         Intent i = new Intent(vcl, vcc.getClass());
         startActivity(i);
     }
 
-    public void sendCategory(DCategory category) {
-        Intent i = new Intent(VListarCategoriasActivity.this, VCrearCategoriaActivity.class);
-
-        ;
+    public void sendCategory(DCategory category, VCrearCategoriaActivity vcc) {
+        Intent i = new Intent(VListarCategoriasActivity.this, vcc.getClass());
+        i.putExtra("id", category.getId());
+        i.putExtra("nombre", category.getNombre());
+        i.putExtra("descripcion", category.getDescripcion());
+        startActivity(i);
     }
     public void mensaggeToast(String mensaje) {
         Toast.makeText(VListarCategoriasActivity.this, mensaje, Toast.LENGTH_SHORT).show();
     }
-
 }

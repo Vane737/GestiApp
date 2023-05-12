@@ -21,32 +21,38 @@ public class CCategoryList {
         this.nc = nc;
         this.vc = vc;
         initListener();
+        vc.setCategoriesList(this.nc.categoriesList());
     }
 
     public CCategoryList(VCrearCategoriaActivity vcc, NCategory nc ) {
         this.nc = nc;
         //this.vcc = vcc;
         initListener();
-        vc.setCategoriesList(nc.categoriesList());
     }
 
     public void initListener() {
-
         vc.btnAñadir.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View v) {
                 VCrearCategoriaActivity vcc = new VCrearCategoriaActivity();
                 vc.setIntent(vc, vcc);
             }
         });
-/*        vc.categoriasListView(new AdapterView.OnItemClickListener() {
+        vc.btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity main = new MainActivity();
+                vc.setIntent(vc, main);
+            }
+        });
+        vc.categoriasListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                VCrearCategoriaActivity vcc = new VCrearCategoriaActivity();
                 String id = ((DCategory) vc.categoriasListView.getItemAtPosition(i)).getId();
-                vc.sendCategory(nc.buscarCategory(id));
+                vc.sendCategory(nc.buscarCategory(id), vcc);
             }
         });
 
-*/
+
     }
 }

@@ -31,6 +31,7 @@ public class NCategory {
     }
 
     public int editar(String id, String nombre, String descripcion ) {
+        this.dc.setId(id);
         this.dc.setNombre(nombre);
         this.dc.setDescripcion(descripcion);
         return this.dc.editar();
