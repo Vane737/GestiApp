@@ -1,8 +1,10 @@
 <resources>
-    <string name="app_name">Inicio</string>
+    <string name="app_name">GestiApp</string>
+
     <string name="button_description">EmpredeApp</string>
 
     <string name="txt_gestionar_category">Gestionar Categoria</string>
+    <string name="btn_inicio">Inicio</string>
     <string name="btn_nuevo">Añadir</string>
     <string name="btn_editar">Editar</string>
     <string name="btn_eliminar">Eliminar</string>

@@ -14,6 +14,9 @@ public class NCategory {
     }
 
 
+    public void setId(String id) {
+        this.dc.setId(id);
+    }
     public void setNombre( String nombre) {
         this.dc.setNombre(nombre);
     }
@@ -27,13 +30,13 @@ public class NCategory {
         return dc.agregar();
     }
 
-    public boolean editar(String id, String nombre, String descripcion ) {
+    public int editar(String id, String nombre, String descripcion ) {
         this.dc.setNombre(nombre);
         this.dc.setDescripcion(descripcion);
         return this.dc.editar();
     }
 
-    public boolean eliminar( String id ) {
+    public int eliminar( String id ) {
         dc.setId(id);
         return this.dc.eliminar();
     }

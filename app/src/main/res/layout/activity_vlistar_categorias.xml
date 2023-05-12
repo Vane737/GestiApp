@@ -29,23 +29,34 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="20dp"
                 android:layout_marginTop="16dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="140dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="40dp"
                 android:text="@string/txt_category"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+            <Button
+                android:id="@+id/btn_inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/btn_bg_primary"
+                android:gravity="center"
+                android:paddingHorizontal="15dp"
+                android:text="@string/btn_inicio"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
 
             <Button
-                android:id="@+id/btn_nueva_cat"
+                android:id="@+id/btn_añadir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="20dp"
                 android:background="@drawable/btn_bg"
                 android:gravity="center"
-                android:paddingHorizontal="20dp"
+                android:paddingHorizontal="15dp"
                 android:text="@string/btn_nuevo"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 

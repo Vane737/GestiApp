@@ -10,10 +10,22 @@
         android:theme="@style/Theme.EmpredeApp">
         <activity
             android:name=".view.category.VListarCategoriasActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <activity
             android:name=".view.category.VCrearCategoriaActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".view.category.VListarCategoriasActivity"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.category.VListarCategoriasActivity"/>
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">

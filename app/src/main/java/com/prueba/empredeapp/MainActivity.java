@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.prueba.empredeapp.view.category.VCrearCategoriaActivity;
+import com.prueba.empredeapp.view.category.VListarCategoriasActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_category:
-                Toast.makeText(this, "Categoria", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, VCrearCategoriaActivity.class);
+                Toast.makeText(this, "Categorias", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(MainActivity.this, VListarCategoriasActivity.class);
                 startActivity(i);
                 break;
         }

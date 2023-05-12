@@ -80,45 +80,41 @@ public class DCategory{
         return id;
     }
 
-    public boolean editar() {
+    public int editar() {
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        boolean isCorrect  = false;
+        int id = 0;
         try {
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
             values.put("descripcion", this.descripcion);
 
-            db.update("categoria", values, "id=" + id, null) ;
-            isCorrect = true;
+            id = db.update("categoria", values, "id=" + this.id, null) ;
         } catch (Exception ex) {
             System.out.println(ex);
-            isCorrect = false;
             ex.toString();
 
         } finally {
             db.close();
         }
 
-        return isCorrect;
+        return id;
     }
 
-    public boolean eliminar() {
+    public int eliminar() {
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        boolean isCorrect  = false;
+        int id  = 0;
         try {
-            db.delete("categoria", id, null) ;
-            isCorrect = true;
+            id = db.delete("categoria", "id=" + id, null);
         } catch (Exception ex) {
             System.out.println(ex);
-            isCorrect = false;
             ex.toString();
         } finally {
             db.close();
         }
 
-        return isCorrect;
+        return id;
     }
 
     public DCategory buscarCategoria() {

@@ -17,6 +17,7 @@ public class CCategory {
     }
 
     private void guardar() {
+
         long id = nc.crear(vc.getTextNombre(), vc.getTextDescriocion());
 
         if (id > 0 ) {
@@ -28,10 +29,44 @@ public class CCategory {
 
     }
 
+    private void editar() {
+
+        int id = nc.editar(vc.getTextId(), vc.getTextNombre(), vc.getTextDescriocion());
+
+        if (id > 0 ) {
+            vc.mensaggeToast("Registro Editado");
+            vc.cleanFormData();
+        } else {
+            vc.mensaggeToast("Error al editar el registro");
+        }
+
+    }
+    private void eliminar() {
+
+        int id = nc.eliminar(vc.getTextId());
+        if (id > 0 ) {
+            vc.mensaggeToast("Registro Eliminado");
+            vc.cleanFormData();
+        } else {
+            vc.mensaggeToast("Error al eliminar el registro");
+        }
+
+    }
+
     public void initListener() {
         vc.btnGuardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 guardar();
+            }
+        });
+        vc.btnEditar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                editar();
+            }
+        });
+        vc.btnEliminar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                eliminar();
             }
         });
 
