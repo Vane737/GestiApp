@@ -18,7 +18,7 @@ public class DProduct {
     private String marca;
     private String descripcion;
     private String precio;
-
+    private Context contexto;
     private String idCategoria;
 
     public DProduct(Context context)
@@ -65,16 +65,12 @@ public class DProduct {
         this.precio = precio;
     }
 
-    private Context contexto;
 
     @Override
     public String toString() {
         return  id + ".- " +
-                " NOMBRE:" + nombre.toUpperCase() + '\n' +
-                "MARCA:" + marca.toUpperCase() + '\n' +
-                "DESCRIPCION:" + descripcion.toUpperCase() + '\n' +
-                "PRECIO:" + precio + "  -  " +
-                "IDCATEGORIA:" + idCategoria;
+                " NOMBRE:" + nombre.toUpperCase() + "  -  CATEGORIA: " + idCategoria +'\n' +
+                " PRECIO:" + precio;
     }
 
     public String getId() {
@@ -111,8 +107,8 @@ public class DProduct {
             values.put("nombre", this.nombre);
             values.put("marca", this.marca);
             values.put("descripcion", this.descripcion);
-            values.put("precio", Double.parseDouble(this.precio));
-            values.put("categoria_id",  parseInt(this.idCategoria));
+            values.put("precio", (Double) Double.parseDouble(this.precio));
+            values.put("categoria_id",  this.idCategoria);
             id = db.insert("product", null, values );
 
         } catch (Exception ex) {
@@ -165,11 +161,11 @@ public class DProduct {
         return id;
     }
 
-    public DProduct buscarProducto() {
+    public DProduct buscarProducto(String column, String value) {
 
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        String sql = String.format("select * from product where %s='%s';", "id" , id);
+        String sql = String.format("select * from product where %s='%s';", column , value);
         Cursor row = db.rawQuery(sql, null);
         if (row.moveToFirst()) {
             setId( row.getString(0) );
@@ -181,6 +177,7 @@ public class DProduct {
         }
         return this;
     }
+
     public List<DProduct> listProducts() {
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getReadableDatabase();

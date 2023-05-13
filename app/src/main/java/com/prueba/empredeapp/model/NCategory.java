@@ -42,9 +42,12 @@ public class NCategory {
         return this.dc.eliminar();
     }
 
-    public DCategory buscarCategory( String id ) {
-            dc.setId(id);
-        return this.dc.buscarCategoria();
+    public DCategory buscarCategory( String column, String value ) {
+        return this.dc.buscarCategoria(column, value);
+    }
+
+    public String buscarNombreCategory(String id) {
+        return this.dc.buscarNombreCategoria(id);
     }
     public List<DCategory> categoriesList() {
         return dc.listCategories();

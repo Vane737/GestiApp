@@ -50,7 +50,7 @@ public class DCategory{
     }
 
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     public void setNombre(String nombre) {
@@ -124,11 +124,11 @@ public class DCategory{
         return id;
     }
 
-    public DCategory buscarCategoria() {
+    public DCategory buscarCategoria(String column, String value) {
 
         Database dbHelper = new Database(this.contexto);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        String sql = String.format("select * from category where %s='%s';", "id" , id);
+        String sql = String.format("select * from category where %s='%s';", column , value);
         Cursor row = db.rawQuery(sql, null);
         if (row.moveToFirst()) {
                     setId( row.getString(0) );
@@ -136,6 +136,20 @@ public class DCategory{
                     setDescripcion(row.getString(2));
         }
         return this;
+    }
+
+    public String buscarNombreCategoria(String value) {
+
+        Database dbHelper = new Database(this.contexto);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        String sql = String.format("select * from category where %s='%s';", "id" , value);
+        Cursor row = db.rawQuery(sql, null);
+        String nombre = "";
+        if (row.moveToFirst()) {
+            nombre = row.getString(1);
+            return nombre;
+        }
+        return null;
     }
     public List<DCategory> listCategories() {
         Database dbHelper = new Database(this.contexto);

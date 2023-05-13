@@ -1,6 +1,7 @@
 package com.prueba.empredeapp.model;
 
 import android.content.Context;
+import android.os.Bundle;
 
 import java.util.List;
 
@@ -8,6 +9,7 @@ public class NProduct {
 
     DProduct dp;
     Context context;
+
     public NProduct( Context contexto ) {
         this.context = contexto;
         dp = new DProduct(this.context);
@@ -32,15 +34,14 @@ public class NProduct {
     }
 
     public void setIdCategoria( String idCategoria) {
-        this.dp.setNombre(idCategoria);
+        this.dp.setIdCategoria(idCategoria);
     }
 
-    public long crear( String nombre, String marca, String descripcion, String precio, String idCategoria ) {
+    public long crear( String nombre, String marca, String descripcion, String precio) {
         this.dp.setNombre(nombre);
         this.dp.setMarca(marca);
         this.dp.setDescripcion(descripcion);
         this.dp.setPrecio(precio);
-        this.dp.setIdCategoria(idCategoria);
         return dp.agregar();
     }
 
@@ -53,13 +54,16 @@ public class NProduct {
         this.dp.setIdCategoria(idCategoria);
         return this.dp.editar();
     }
+
+    public String getIdCategoria(){
+        return dp.getIdCategoria();
+    }
     public int eliminar( String id ) {
         dp.setId(id);
         return this.dp.eliminar();
     }
-    public DProduct buscarProduct( String id ) {
-        dp.setId(id);
-        return this.dp.buscarProducto();
+    public DProduct buscarProduct( String column, String value ) {
+        return this.dp.buscarProducto(column, value);
     }
     public List<DProduct> productsList() {
         return dp.listProducts();

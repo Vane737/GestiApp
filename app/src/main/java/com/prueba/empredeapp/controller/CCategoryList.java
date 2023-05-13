@@ -16,7 +16,6 @@ public class CCategoryList {
 
     NCategory nc;
     VListarCategoriasActivity vc;
-//    VCrearCategoriaActivity vcc;
     public CCategoryList(VListarCategoriasActivity vc, NCategory nc ) {
         this.nc = nc;
         this.vc = vc;
@@ -49,7 +48,7 @@ public class CCategoryList {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 VCrearCategoriaActivity vcc = new VCrearCategoriaActivity();
                 String id = ((DCategory) vc.categoriasListView.getItemAtPosition(i)).getId();
-                vc.sendCategory(nc.buscarCategory(id), vcc);
+                vc.sendCategory(nc.buscarCategory("id", id), vcc);
             }
         });
 

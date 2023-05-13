@@ -9,22 +9,37 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EmpredeApp">
         <activity
-            android:name=".view.category.VListarCategoriasActivity"
+            android:name=".view.product.VListarProductosActivity"
             android:exported="false"
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".view.product.VCrearProductoActivity"
+            android:exported="false"
+            android:parentActivityName=".view.product.VListarProductosActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.product.VListarProductosActivity" />
+        </activity>
+        <activity
+            android:name=".view.category.VListarCategoriasActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".view.category.VCrearCategoriaActivity"
             android:exported="false"
-            android:parentActivityName=".view.category.VListarCategoriasActivity"
-            >
+            android:parentActivityName=".view.category.VListarCategoriasActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.category.VListarCategoriasActivity"/>
+                android:value=".view.category.VListarCategoriasActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

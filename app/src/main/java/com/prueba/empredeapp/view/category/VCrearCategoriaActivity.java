@@ -66,9 +66,6 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         Toast.makeText(VCrearCategoriaActivity.this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
-    public void setEnableButton( Button btnAction, boolean value ) {
-        btnAction.setEnabled(value);
-    }
     public void cleanFormData() {
         txtId.setText("");
         txtNombre.setText("");

@@ -4,6 +4,7 @@
     <string name="button_description">EmpredeApp</string>
 
     <string name="txt_gestionar_category">Gestionar Categoria</string>
+    <string name="txt_gestionar_product">Gestionar Producto</string>
     <string name="btn_inicio">Inicio</string>
     <string name="btn_nuevo">Añadir</string>
     <string name="btn_editar">Editar</string>
