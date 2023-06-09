@@ -13,6 +13,7 @@ import com.prueba.empredeapp.controller.CCategory;
 import com.prueba.empredeapp.controller.CCategoryList;
 import com.prueba.empredeapp.model.DCategory;
 import com.prueba.empredeapp.model.NCategory;
+import com.prueba.empredeapp.view.product.Input;
 
 import org.w3c.dom.Text;
 
@@ -26,11 +27,14 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
     public Button btnEliminar;
     private Bundle extras;
 
+    private Input textInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_v_crear_categoria);
+
+        textInput = new Input(this);
 
         txtId = (TextView) findViewById(R.id.txtIdCat);
         txtId.setEnabled(false);
@@ -52,7 +56,12 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         }
         NCategory nc = new NCategory(this);
         CCategory cc = new CCategory(VCrearCategoriaActivity.this, nc);
+
+        Input input = textInput.clonar();
+
     }
+
+
     public String getTextId() {
         return txtId.getText().toString();
     }
@@ -71,6 +80,7 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         txtNombre.setText("");
         txtDescription.setText("");
     }
+
 
 
 }

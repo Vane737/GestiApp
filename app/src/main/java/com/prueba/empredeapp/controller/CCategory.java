@@ -5,10 +5,11 @@ import android.widget.Toast;
 
 import com.prueba.empredeapp.model.NCategory;
 import com.prueba.empredeapp.view.category.VCrearCategoriaActivity;
+import com.prueba.empredeapp.view.product.Whatsapp;
 
 public class CCategory {
-    NCategory nc;
-    VCrearCategoriaActivity vc;
+    private NCategory nc;
+    private VCrearCategoriaActivity vc;
 
     public CCategory( VCrearCategoriaActivity vc, NCategory nc ) {
         this.nc = nc;
@@ -61,7 +62,10 @@ public class CCategory {
     public void initListener() {
         vc.btnGuardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                guardar();
+
+                // guardar();
+                Whatsapp whatsapp = new Whatsapp(vc);
+                whatsapp.showDialog();
             }
         });
         vc.btnEditar.setOnClickListener(new View.OnClickListener() {

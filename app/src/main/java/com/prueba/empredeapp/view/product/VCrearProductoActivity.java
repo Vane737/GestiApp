@@ -35,6 +35,7 @@ public class  VCrearProductoActivity extends AppCompatActivity {
     private ArrayAdapter<String> categoriasListAdapter;
     private Bundle extras;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +44,7 @@ public class  VCrearProductoActivity extends AppCompatActivity {
         txtId = (TextView) findViewById(R.id.txtIdProd);
         txtId.setEnabled(false);
         txtNombre = (TextView) findViewById(R.id.txtNombreProd);
+
         txtMarca = (TextView) findViewById(R.id.txtMarcaProd);
         txtDescription = (TextView) findViewById(R.id.txtDescripcionProd);
         txtPrecio = (TextView) findViewById(R.id.txtPrecioProd);

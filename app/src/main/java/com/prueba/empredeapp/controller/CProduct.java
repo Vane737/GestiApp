@@ -8,15 +8,22 @@ import com.prueba.empredeapp.model.DCategory;
 import com.prueba.empredeapp.model.NCategory;
 import com.prueba.empredeapp.model.NProduct;
 import com.prueba.empredeapp.view.category.VCrearCategoriaActivity;
+import com.prueba.empredeapp.view.product.ContextoDescuento;
+import com.prueba.empredeapp.view.product.DescuentoCliente;
+import com.prueba.empredeapp.view.product.DescuentoEstudiante;
+import com.prueba.empredeapp.view.product.DescuentoTerceraEdad;
 import com.prueba.empredeapp.view.product.VCrearProductoActivity;
 
 public class CProduct {
-    NProduct np;
-    VCrearProductoActivity vp;
-    NCategory nc;
+    private NProduct np;
+    private VCrearProductoActivity vp;
+    private NCategory nc;
+
+    private ContextoDescuento estrategia;
 
     int position;
     public CProduct( VCrearProductoActivity vp, NProduct np, NCategory nc ) {
+        this.estrategia = new ContextoDescuento();
         this.np = np;
         this.vp = vp;
         this.nc = nc;
@@ -93,6 +100,19 @@ public class CProduct {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String codigo = ((String) vp.categoriasListSpinner.getItemAtPosition(i));
                 np.setIdCategoria(nc.buscarCategory("nombre", codigo).getId());
+
+                switch (i) {
+                    case 0:
+                        estrategia.setEstrategia(new DescuentoEstudiante());
+                        break;
+                    case 1:
+                        estrategia.setEstrategia(new DescuentoCliente());
+                        break;
+                    case 2:
+                        estrategia.setEstrategia(new DescuentoTerceraEdad());
+                        break;
+                }
+                estrategia.procesarDescuento(15,"");
             }
 
             @Override
