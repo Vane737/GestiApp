@@ -23,9 +23,6 @@ public class NProduct {
         this.dp.setNombre(nombre);
     }
 
-    public void setMarca( String marca ){
-        this.dp.setMarca(marca);
-    }
     public void setDescripcion( String descripcion) {
         this.dp.setNombre(descripcion);
     }
@@ -37,18 +34,16 @@ public class NProduct {
         this.dp.setIdCategoria(idCategoria);
     }
 
-    public long crear( String nombre, String marca, String descripcion, String precio) {
+    public long crear( String nombre, String descripcion, String precio) {
         this.dp.setNombre(nombre);
-        this.dp.setMarca(marca);
         this.dp.setDescripcion(descripcion);
         this.dp.setPrecio(precio);
         return dp.agregar();
     }
 
-    public int editar(String id, String nombre, String marca, String descripcion, String precio, String idCategoria ) {
+    public int editar(String id, String nombre, String descripcion, String precio, String idCategoria ) {
         this.dp.setId(id);
         this.dp.setNombre(nombre);
-        this.dp.setMarca(marca);
         this.dp.setDescripcion(descripcion);
         this.dp.setPrecio(precio);
         this.dp.setIdCategoria(idCategoria);

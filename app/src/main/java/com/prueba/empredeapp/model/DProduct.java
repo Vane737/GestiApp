@@ -15,7 +15,6 @@ import java.util.List;
 public class DProduct {
     private String id;
     private String nombre;
-    private String marca;
     private String descripcion;
     private String precio;
     private Context contexto;
@@ -25,17 +24,15 @@ public class DProduct {
     {
         this.id = "";
         this.nombre = "";
-        this.marca = "";
         this.descripcion = "";
         this.precio = "";
         this.idCategoria = "";
         this.contexto = context;
     }
 
-    public DProduct(String id, String nombre, String marca, String descripcion, String precio, String idCategoria) {
+    public DProduct(String id, String nombre, String descripcion, String precio, String idCategoria) {
         this.id = id;
         this.nombre = nombre;
-        this.marca = marca;
         this.descripcion = descripcion;
         this.precio = precio;
         this.idCategoria = idCategoria;
@@ -48,19 +45,9 @@ public class DProduct {
     public void setIdCategoria(String idCategoria) {
         this.idCategoria = idCategoria;
     }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
     public String getPrecio() {
         return precio;
     }
-
     public void setPrecio(String precio) {
         this.precio = precio;
     }
@@ -105,7 +92,6 @@ public class DProduct {
         try {
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
-            values.put("marca", this.marca);
             values.put("descripcion", this.descripcion);
             values.put("precio", (Double) Double.parseDouble(this.precio));
             values.put("categoria_id",  this.idCategoria);
@@ -129,7 +115,6 @@ public class DProduct {
             ContentValues values = new ContentValues();
             values.put("nombre", this.nombre);
             values.put("descripcion", this.descripcion);
-            values.put("descripcion", this.descripcion);
             values.put("precio", Double.parseDouble(precio));
             values.put("categoria_id",  parseInt(this.idCategoria));
 
@@ -137,11 +122,9 @@ public class DProduct {
         } catch (Exception ex) {
             System.out.println(ex);
             ex.toString();
-
         } finally {
             db.close();
         }
-
         return id;
     }
 
@@ -170,10 +153,9 @@ public class DProduct {
         if (row.moveToFirst()) {
             setId( row.getString(0) );
             setNombre(row.getString(1));
-            setMarca(row.getString(2));
-            setDescripcion(row.getString(3));
-            setPrecio(row.getString(4));
-            setIdCategoria(row.getString(5));
+            setDescripcion(row.getString(2));
+            setPrecio(row.getString(3));
+            setIdCategoria(row.getString(4));
         }
         return this;
     }
@@ -193,8 +175,7 @@ public class DProduct {
                         rows.getString(1),
                         rows.getString(2),
                         rows.getString(3),
-                        rows.getString(4),
-                        rows.getString(5)
+                        rows.getString(4)
                 );
                 products.add( product );
             }while ( rows.moveToNext() );
