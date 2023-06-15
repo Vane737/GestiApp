@@ -58,7 +58,6 @@ public class VListarProductosActivity extends AppCompatActivity {
     public void sendProduct(DProduct product, VCrearProductoActivity vcc) {
         Intent i = new Intent(VListarProductosActivity.this, vcc.getClass());
         i.putExtra("id", product.getId());
-        i.putExtra("marca", product.getMarca());
         i.putExtra("nombre", product.getNombre());
         i.putExtra("descripcion", product.getDescripcion());
         i.putExtra("precio", product.getPrecio());

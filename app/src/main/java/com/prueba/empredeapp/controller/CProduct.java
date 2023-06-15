@@ -36,7 +36,7 @@ public class CProduct {
         long id = 0;
 
         if (vp.getTextNombre().length() > 0 && vp.getTextMarca().length() > 0 && vp.getTextDescripcion().length() > 0 && vp.getTextPrecio().length() > 0 ){
-            id = np.crear(vp.getTextNombre(), vp.getTextMarca(), vp.getTextDescripcion(), vp.getTextPrecio());
+            id = np.crear(vp.getTextNombre(), vp.getTextDescripcion(), vp.getTextPrecio());
             System.out.println(np.getIdCategoria());
             if (id > 0 ) {
                 vp.mensaggeToast("Registro Guardado");
@@ -57,7 +57,7 @@ public class CProduct {
 
     private void editar() {
 
-        int id = np.editar(vp.getTextId(), vp.getTextNombre(), vp.getTextMarca(), vp.getTextDescripcion(), vp.getTextPrecio(), null );
+        int id = np.editar(vp.getTextId(), vp.getTextNombre(), vp.getTextDescripcion(), vp.getTextPrecio(), null );
 
         if (id > 0 ) {
             vp.mensaggeToast("Registro Editado");

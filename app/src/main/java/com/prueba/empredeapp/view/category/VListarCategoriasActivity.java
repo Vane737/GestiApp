@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.prueba.empredeapp.MainActivity;
 import com.prueba.empredeapp.R;
+import com.prueba.empredeapp.controller.CCategory;
 import com.prueba.empredeapp.controller.CCategoryList;
 import com.prueba.empredeapp.model.DCategory;
 import com.prueba.empredeapp.model.NCategory;
@@ -42,7 +43,7 @@ public class VListarCategoriasActivity extends AppCompatActivity {
         categoriasListView.setAdapter(categoriasListAdapter);
         System.out.println("Hola mundo");
         NCategory nc = new NCategory(this);
-        CCategoryList cc = new CCategoryList(VListarCategoriasActivity.this, nc);
+        CCategory cc = new CCategory(VListarCategoriasActivity.this, nc);
     }
 
 
