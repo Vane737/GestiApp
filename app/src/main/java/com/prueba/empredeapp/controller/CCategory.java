@@ -26,10 +26,10 @@ public class CCategory {
         this.nc = nc;
         this.vcl = vcl;
         initListener2();
-        vcl.setCategoriesList(this.nc.categoriesList());
+//        vcl.setCategoriesList(this.nc.categoriesList());
     }
 
-    /*
+
     private void guardar() {
 
         long id = 0;
@@ -47,7 +47,7 @@ public class CCategory {
         }
 
     }
-*/
+
     private void editar() {
 
         int id = nc.editar(vc.getTextId(), vc.getTextNombre(), vc.getTextDescriocion());
@@ -72,16 +72,18 @@ public class CCategory {
 
     }
     public void initListener1() {
-        /*      vc.btnGuardar.setOnClickListener(new View.OnClickListener() {
+              vc.btnGuardar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                // guardar();
+                guardar();
+                vc.setIntent(vc, new VListarCategoriasActivity());
+                /*
                 Whatsapp whatsapp = new Whatsapp(vc);
                 whatsapp.showDialog();
+                 */
             }
         });
 
-   */
         vc.btnEditar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 editar();
@@ -99,8 +101,7 @@ public class CCategory {
 
         vcl.btnAñadir.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                VCrearCategoriaActivity vcc = new VCrearCategoriaActivity();
-                vcl.setIntent(vcl, vcc);
+                vcl.setIntent(vcl, new VCrearCategoriaActivity());
             }
         });
         vcl.btnInicio.setOnClickListener(new View.OnClickListener() {

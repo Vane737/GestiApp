@@ -2,6 +2,7 @@ package com.prueba.empredeapp.view.category;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -27,14 +28,14 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
     public Button btnEliminar;
     private Bundle extras;
 
-    private Input textInput;
+//    private Input textInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_v_crear_categoria);
 
-        textInput = new Input(this);
+     //   textInput = new Input(this);
 
         txtId = (TextView) findViewById(R.id.txtIdCat);
         txtId.setEnabled(false);
@@ -57,11 +58,9 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         NCategory nc = new NCategory(this);
         CCategory cc = new CCategory(VCrearCategoriaActivity.this, nc);
 
-        Input input = textInput.clonar();
+//        Input input = textInput.clonar();
 
     }
-
-
     public String getTextId() {
         return txtId.getText().toString();
     }
@@ -75,6 +74,10 @@ public class VCrearCategoriaActivity extends AppCompatActivity {
         Toast.makeText(VCrearCategoriaActivity.this, mensaje, Toast.LENGTH_SHORT).show();
     }
 
+    public void setIntent(VCrearCategoriaActivity vcl, Context vcc) {
+        Intent i = new Intent(vcl, vcc.getClass());
+        startActivity(i);
+    }
     public void cleanFormData() {
         txtId.setText("");
         txtNombre.setText("");

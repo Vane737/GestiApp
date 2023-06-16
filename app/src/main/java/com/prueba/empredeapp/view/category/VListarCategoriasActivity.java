@@ -30,11 +30,12 @@ public class VListarCategoriasActivity extends AppCompatActivity {
     private ArrayAdapter<DCategory> categoriasListAdapter;
 
     private Context context;
+
+    private NCategory nc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vlistar_categorias);
-
         btnAñadir = (Button) findViewById(R.id.btn_añadir);
         btnInicio = (Button) findViewById(R.id.btn_inicio);
 
@@ -42,8 +43,9 @@ public class VListarCategoriasActivity extends AppCompatActivity {
         categoriasListAdapter = new ArrayAdapter<DCategory>(this, R.layout.list_item);
         categoriasListView.setAdapter(categoriasListAdapter);
         System.out.println("Hola mundo");
-        NCategory nc = new NCategory(this);
+        nc = new NCategory(this);
         CCategory cc = new CCategory(VListarCategoriasActivity.this, nc);
+        this.setCategoriesList(nc.categoriesList());
     }
 
 
